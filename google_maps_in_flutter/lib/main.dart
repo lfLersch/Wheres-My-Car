@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_in_flutter/Pages/MapsPage.dart';
+import 'package:google_maps_in_flutter/Pages/ParkingPage.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -58,7 +59,10 @@ class _MyAppState extends State<MyApp> {
                   shadowColor: Colors.red,
                 ),
                 child: Text('Estacionamento'),
-                onPressed: () {},
+                onPressed: () {
+                  Map<String, bool> parkingMap = {'A1': false, 'A2': false, 'A3': false, 'A4': false, 'A5': false, 'A6': false,};
+                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ParkingPage(parkingMap)));
+                },
               ),
             ],
           ),
