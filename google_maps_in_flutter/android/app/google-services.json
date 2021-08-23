@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "254496227946",
+    "project_id": "where-s-my-car-73a0c",
+    "storage_bucket": "where-s-my-car-73a0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254496227946:android:82ad0e780ab8db8c4d8013",
+        "android_client_info": {
+          "package_name": "com.example.google_maps_in_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "254496227946-qtqhi2cagb0kjl3j2nie35sdmkjvd1tf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUTT7Y1CAMv_YQC4hff9cHchMwXKB8eI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254496227946-qtqhi2cagb0kjl3j2nie35sdmkjvd1tf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

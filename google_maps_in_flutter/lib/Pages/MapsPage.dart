@@ -4,10 +4,10 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapsPage extends StatefulWidget {
   @override
-  Mapstate createState() => Mapstate();
+  MapState createState() => MapState();
 }
 
-class Mapstate extends State<MapsPage> {
+class MapState extends State<MapsPage> {
   late GoogleMapController mapController;
 
   final LatLng _center = const LatLng(-29.614003, -52.209617);
