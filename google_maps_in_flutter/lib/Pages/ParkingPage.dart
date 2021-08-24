@@ -46,15 +46,11 @@ class ParkingState extends State<ParkingPage> {
                   height: 57.0,
                   child: Center(
                     child: (widget.parkingMap['A1'])
-                    ? new Text('A1',
+                    ? new Image(image: AssetImage('imagens/car.png'),)
+                    : new Text('A1',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
-                    ),)
-                    :new Text('A1',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.red,
                       ),)
                   ),
                 )
