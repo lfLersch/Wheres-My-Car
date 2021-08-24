@@ -48,13 +48,14 @@ class LoginPageState extends State<LoginPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Where\' my car?"),
+          backgroundColor: Colors.green,
         ),
         body: FutureBuilder(
           future: _initializeFirebase(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return Padding(
-                padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+                padding: const EdgeInsets.only(left: 24.0, right: 24.0,top: 200),
                   child: ListView(
                     children: <Widget>[
                       Column(

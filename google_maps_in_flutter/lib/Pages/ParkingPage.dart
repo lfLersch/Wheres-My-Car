@@ -21,8 +21,8 @@ class ParkingState extends State<ParkingPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Maps Sample App'),
-          backgroundColor: Colors.green[700],
+          title: Text('Estacionamento'),
+          backgroundColor: Colors.green,
         ),
         body: Container(
           decoration: BoxDecoration(

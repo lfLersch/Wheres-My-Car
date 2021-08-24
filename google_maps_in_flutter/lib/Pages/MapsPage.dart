@@ -54,8 +54,8 @@ class MapState extends State<MapsPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Maps Sample App'),
-          backgroundColor: Colors.green[700],
+          title: Text('Mapa Livre'),
+          backgroundColor: Colors.green,
         ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,

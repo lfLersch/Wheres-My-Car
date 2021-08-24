@@ -36,7 +36,8 @@ class SignUpPageState extends State<SignUpPage> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Text('Sign Up'),
+          title: Text('Criar Conta'),
+          backgroundColor: Colors.green,
         ),
         body: Padding(
           padding: const EdgeInsets.all(24.0),

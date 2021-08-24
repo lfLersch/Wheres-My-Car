@@ -29,15 +29,22 @@ class MainPageState extends State<MainPage> {
    @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFF332F43),
+      ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Maps Sample App'),
-          backgroundColor: Colors.green[700],
+          title: Text('Menu Principal'),
+          backgroundColor: Colors.green,
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+            SizedBox(
+              height: 40,
+            width: 220,
+            child:
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                 primary: Colors.red,
@@ -50,25 +57,40 @@ class MainPageState extends State<MainPage> {
                   Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MapsPage()));
                 },
               ),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
+            ),
+          SizedBox(
+            height: 60,
+          ),
+              SizedBox(
+                height: 40,
+                width: 220,
+                child:
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                    primary: Colors.red,
+                    onSurface: Colors.green,
+                    elevation: 20,
+                    shadowColor: Colors.red,
+                  ),
+                  child: Text('Estacionamento'),
+                  onPressed: () {
+                    Map<String, bool> parkingMap = {'A1': false, 'A2': false, 'A3': false, 'A4': false, 'A5': false, 'A6': false,};
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ParkingPage(parkingMap)));
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 60,
+              ),
+              SizedBox(
+                height: 40,
+                width: 220,
+                child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
                   primary: Colors.red,
                   onSurface: Colors.green,
                   elevation: 20,
                   shadowColor: Colors.red,
-                ),
-                child: Text('Estacionamento'),
-                onPressed: () {
-                  Map<String, bool> parkingMap = {'A1': false, 'A2': false, 'A3': false, 'A4': false, 'A5': false, 'A6': false,};
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ParkingPage(parkingMap)));
-                },
-              ),
-              ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                    primary: Colors.red,
-                onSurface: Colors.green,
-                    elevation: 20,
-                    shadowColor: Colors.red,
                 ),
                 child: Text('Sign Out'),
                 onPressed: () async {
@@ -80,6 +102,8 @@ class MainPageState extends State<MainPage> {
                   );
                 },
               ),
+              )
+
             ],
           ),
         ),
