@@ -16,7 +16,7 @@ class MapState extends State<MapsPage> {
   late double lat;
   late double long;
 
-  final LatLng _center = const LatLng(-29.614003, -52.209617);
+  LatLng _center = const LatLng(-29.614003, -52.209617);
   void initState() {
     super.initState();
     addMarker();
@@ -38,7 +38,8 @@ class MapState extends State<MapsPage> {
       icon: BitmapDescriptor.defaultMarker,
     ));
     setState(() {
-
+      _center = latlng;
+      mapController.moveCamera(CameraUpdate.newLatLngZoom(latlng, 15));
     });
     print(position.longitude);
   }
@@ -62,7 +63,7 @@ class MapState extends State<MapsPage> {
           markers: _markers,
           initialCameraPosition: CameraPosition(
             target: _center,
-            zoom: 14.5,
+            zoom: 1,
           ),
         ),
       ),
