@@ -10,6 +10,7 @@ class ParkingPage extends StatefulWidget {
 }
 
 class ParkingState extends State<ParkingPage> {
+  String myPark = 'A1';
 
   void initState() {
     super.initState();
@@ -37,9 +38,7 @@ class ParkingState extends State<ParkingPage> {
                 top: 215,
                   child: new GestureDetector(
                       onTap: (){
-                        setState(() {
-                          widget.parkingMap['A1'] = !widget.parkingMap['A1'];
-                        });
+                        _showConfirmDialog('A1', widget.parkingMap['A1']);
                       },
                 child: new Container(
                   width: 100.0,
@@ -62,20 +61,20 @@ class ParkingState extends State<ParkingPage> {
                   top: 215,
                 child: new GestureDetector(
                     onTap: (){
-                      setState(() {
-                        widget.parkingMap['A2'] = !widget.parkingMap['A2'];
-                        print(widget.parkingMap['A2']);
-                      });
+                      _showConfirmDialog('A2', widget.parkingMap['A2']);
                     },
                   child: new Container(
                     width: 100.0,
                     height: 57.0,
-                    child: Center( child:
-                    new Text('A2',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),),),
+                    child: Center(
+                        child: (widget.parkingMap['A2'])
+                            ? new Image(image: AssetImage('imagens/car.png'),)
+                            : new Text('A2',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),)
+                    ),
                   )
               ),
               ),
@@ -84,17 +83,20 @@ class ParkingState extends State<ParkingPage> {
                   top: 280,
                 child: new GestureDetector(
                     onTap: (){
-                      print("Container clicked");
+                      _showConfirmDialog('A3', widget.parkingMap['A3']);
                     },
                   child: new Container(
                     width: 100.0,
                     height: 57.0,
-                    child: Center( child:
-                    new Text('A3',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),),),
+                    child: Center(
+                        child: (widget.parkingMap['A3'])
+                            ? new Image(image: AssetImage('imagens/car.png'),)
+                            : new Text('A3',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),)
+                    ),
                   )
               ),
               ),
@@ -103,17 +105,20 @@ class ParkingState extends State<ParkingPage> {
                   top: 280,
                 child: new GestureDetector(
                     onTap: (){
-                      print("Container clicked");
+                      _showConfirmDialog('A4', widget.parkingMap['A4']);
                     },
                   child: new Container(
                     width: 100.0,
                     height: 57.0,
-                    child: Center( child:
-                    new Text('A4',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),),),
+                    child: Center(
+                        child: (widget.parkingMap['A4'])
+                            ? new Image(image: AssetImage('imagens/car.png'),)
+                            : new Text('A4',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),)
+                    ),
                   )
               ),
               ),
@@ -122,17 +127,20 @@ class ParkingState extends State<ParkingPage> {
                   top: 345,
                 child: new GestureDetector(
                     onTap: (){
-                      print("Container clicked");
+                      _showConfirmDialog('A5', widget.parkingMap['A5']);
                     },
                   child: new Container(
                     width: 100.0,
                     height: 57.0,
-                    child: Center( child:
-                    new Text('A5',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),),),
+                    child: Center(
+                        child: (widget.parkingMap['A5'])
+                            ? new Image(image: AssetImage('imagens/car.png'),)
+                            : new Text('A5',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),)
+                    ),
 
                   )
               ),
@@ -142,17 +150,20 @@ class ParkingState extends State<ParkingPage> {
                   top: 345,
                 child: new GestureDetector(
                     onTap: (){
-                      print("Container clicked");
+                      _showConfirmDialog('A6', widget.parkingMap['A6']);
                     },
                   child: new Container(
                     width: 100.0,
                     height: 57.0,
-                    child: Center( child:
-                      new Text('A6',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                      ),),),
+                    child: Center(
+                        child: (widget.parkingMap['A6'])
+                            ? new Image(image: AssetImage('imagens/car.png'),)
+                            : new Text('A6',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),)
+                    ),
                   )
               ),
               )
@@ -162,6 +173,42 @@ class ParkingState extends State<ParkingPage> {
         ),
 
       ),
+    );
+  }
+
+
+  Future<void> _showConfirmDialog(String id, bool vaga) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: SingleChildScrollView(
+              child:
+                (vaga)
+                ?Text('Tem certeza que deseja tirar o carro da vaga?')
+                :Text('Tem certeza que estacionou nesta vaga?'),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Sim'),
+              onPressed: () {
+                setState(() {
+                  if(!vaga){
+                    widget.parkingMap[myPark] = false;
+                    myPark = id;
+                    widget.parkingMap[id] = true;
+                  }else{
+                    widget.parkingMap[id] = false;
+                  }
+
+                });
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
