@@ -29,6 +29,7 @@ class MainPageState extends State<MainPage> {
    @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFF332F43),
       ),
